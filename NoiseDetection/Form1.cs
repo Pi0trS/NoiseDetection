@@ -16,5 +16,17 @@ namespace NoiseDetection
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string path = openFileDialog1.FileName;
+
+                pictureBox1.ImageLocation = path;
+            }
+            pictureBox2.Image = FaindNoise.generateNoiseImage(openFileDialog1.FileName);
+        }
     }
 }
